@@ -1,0 +1,175 @@
+@charset "utf-8";
+
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 3
+   Case Problem 1
+   
+   Layout styles for Slate and Pencil Tutoring
+   Author: Christian Gregorio
+   Date:   10.24.18
+   
+   Filename: sp_layout.css
+
+*/
+
+/* Window and Body Styles */
+/* 
+I set the height of the html element using the attribute selector. Setting it to a relative height of 100% ensures that the website will always display at the full height.
+*/
+html {
+    height: 100%;
+}
+
+/* 
+Setting the body to 95% will automatically set it to be be 95% of whatever elements that it is inside of. The minimum and maximum widths set to 640 and 960 make sure that if the browser window is a different size, it will display at a maximum of 960 pixels for larger screens, and 640 pixels for smaller screens. Setting it to a minimum height of 100% of the page will ensure that it always displays at 100%. Setting both of the margins to the right and the left of the element to auto will center the page's elements.
+*/
+body {
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    min-width: 640px;
+    max-width: 960px;
+    min-height: 100%;
+}
+
+/* 
+Selecting all of these elements separated only by the commas ensures that more than one attribute/element is selected. The property to change it is box-sizing, but it is new to CSS3, so that means that there needs to be the browser specific add-ons for firefox and chrome/safari, which are the most popular browsers. This allows it to show to more viewers, which helps to allow more viewers to access our page.
+*/
+header,
+ul,
+nav,
+li,
+a {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+/* Row Styles */
+
+/* 
+Doing this ensures that container collapse doesn't happen, because floated elements often fail to be enclosed inside of the elements they are nested inside. Setting a pseudo-element to after and clearing both sides makes sure that the selected attribute is enclosed inside of a container, as the container cannot wrap around the empty content set in the empty content string. This tricks the webpage to render content that doesn't exist.
+*/
+.row::after {
+    clear: both;
+    display: table;
+    content: "";
+}
+
+
+/* Page Header Styles */
+
+/* 
+Displaying the element as a block ensures that it is its own element, and occupies space to but it horizontally next to the other elements. Setting the width to 70% increases it to the width of the header, increasing its height as well. Floating it left allows the list items to wrap around to the right side. 
+*/
+
+header img {
+    display: block;
+    width: 70%;
+    float: left;
+}
+
+/* 
+This sets the nav inside of the header to the left most side that isn't already occupied by the image. Setting it to the width of 30% sets it to fill the rest of the header up. Padding is set to both left and right sides to 2% of the header.
+*/
+
+header nav {
+    float: left;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 30%;
+}
+
+/* 
+This makes the elements stack on top of one another, because the width is set to 100% of the nav. Otherwise, they would be next to each other horizontally.
+*/
+header nav a {
+    display: block;
+    width: 100%;
+}
+
+/* Horizontal Navigation List Styles */
+/* 
+Because there are eight links, the width is set to 12.5, because that's a fraction of 1/8th. The display as a block lets there be other elements that can be displayed to the left and right of that element, and floating it left allwows every list item to be displayed next to one another horizontally.
+*/
+nav.horizontal li {
+    display: block;
+    width: 12.5%;
+    float: left;
+}
+
+/* Topics Styles */
+/* 
+The width is set to 20% to account for the four elements, but the margin has to be accounted for because of the 1.5% increase to the right.
+*/
+ul#topics li {
+    display: block;
+    width: 20%;
+    float: left;
+    margin-left: 0%;
+    margin-right: 1.5%;
+}
+
+/* 
+These two properties allows the first list item to have a left margin of 7.5% and the right margin of the last list item to 7.5%
+*/
+ul#topics li:first-of-type {
+    margin-left: 7.75%;
+}
+
+ul#topics li:last-of-type {
+    margin-right: 7.75%;
+}
+
+ul#topics li img {
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* HR Styles */
+/* 
+This makes the horizontal line in the body half the size
+*/
+hr {
+    width: 50%;
+}
+
+/* Customer Comment Styles */
+/* 
+Setting the margin to 40 first then auto makes the top and bottom margins to 40 pixels, separating the comments, and auto, centering the commments. Setting it to a width of 75 percent allows the comments to be centered and smaller than the entire body.
+*/
+ul#comments {
+    width: 75%;
+    margin: 40px auto;
+}
+
+ul#comments li {
+    display: block;
+    width: 50%;
+    float: left;
+    margin-bottom: 30px;
+}
+
+ul#comments li img {
+    display: block;
+    width: 20%;
+    float: left;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+ul#comments li p {
+    float: left;
+    width: 70%;
+}
+
+/* Footer Styles */
+/* 
+This displays the footer when there is nothing to the left or the right of the footer.
+*/
+footer {
+    clear: both;
+}
